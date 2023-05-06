@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">BudgetApp</string>
+    <string name="FeedbackText">Feedback</string>
+    <string name="feedbackInput">What Do You Feel?</string>
+    <string name="giveYourRatingsText">Give Your Ratings :</string>
+    <string name="feedbackSubmitButton">Submit</string>
+    <string name="updateCommentInput">Update Comment :</string>
+    <string name="updateFeedbackButton">Update Feedback</string>
+    <string name="UsersFeedbacks">User\'s Feedbacks</string>
+    <string name="ShopName">Keels</string>
+    <string name="shopNameText">Shop Name</string>
+    <string name="commentText">Comment : The Best Service !!</string>
+    <string name="ratingsText">Ratings : *****</string>
+    <string name="shopFeedbacksText">Shop Feedbacks </string>
+    <string name="userName">User Name : Stephan </string>
+    <string name="userComment">Comment : Best Service Ever!!!</string>
+    <string name="userRatingsText">Ratings :</string>
+    <string name="userFeedbackAcceptButton">Accept</string>
+    <string name="userFeedbackDeclineButton">Decline</string>
+    <string name="userComment3">Comment : The Best Service!!</string>
+    <string name="userRatings">Ratings : *****</string>
+    <string name="shopName1">Keels</string>
+    <string name="shopNameText2">Shop Name</string>
+    <string name="YourFeedbacksText">Your Feedback</string>
+</resources>
