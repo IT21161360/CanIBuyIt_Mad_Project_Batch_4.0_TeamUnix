@@ -16,8 +16,6 @@ import com.example.budgetapp.config.FirebaseHelper
 class CustomAdapter(private val mList: List<FeedbacksViewModel>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
     // create new views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        // inflates the card_view_design view
-        // that is used to hold list item
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.activity_user_side_users_feedback_list_card_view, parent, false)
 
