@@ -1,43 +1,39 @@
 package com.example.budgetapp
 
+import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import com.example.budgetapp.config.FirebaseHelper
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
+import android.view.WindowInsets
+import android.view.WindowManager
+import android.widget.Button
 
 class MainActivity : AppCompatActivity() {
-    val firebaseHelper = FirebaseHelper();
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            window.insetsController?.hide(WindowInsets.Type.statusBars() or WindowInsets.Type.navigationBars())
+        } else {
+            @Suppress("DEPRECATION")
+            window.setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN
+            )
+        }
+        supportActionBar?.hide()
         setContentView(R.layout.activity_main)
 
-        // Update a message to the database
-        val database = Firebase.database("https://budgetapp-c421a-default-rtdb.firebaseio.com")
-        val myRef = database.getReference("message")
-        myRef.setValue("Hello, World!1234")
+        val btnAddFeedback = findViewById<Button>(R.id.btnAddFeedback)
+        val btnListFeedback = findViewById<Button>(R.id.btnListFeedback)
 
-        // Write a message to the database
-        val myRef1 = database.getReference("messageRef")
-        myRef1.setValue("Hello, World New Ref")
+        btnAddFeedback.setOnClickListener {
+            val intent = Intent(this,FeedbackActivity::class.java)
+            startActivity(intent);
+        }
 
-        // Read from the database
-        myRef.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                val value = dataSnapshot.getValue()
-                Log.d("TAG_DATA", "Value is: $value")
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                // Failed to read value
-                Log.w("TAG_ERROR", "Failed to read value.", error.toException())
-            }
-        })
+        btnListFeedback.setOnClickListener {
+            val intent = Intent(this,UserSideUsersFeedbackListActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
